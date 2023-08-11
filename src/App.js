@@ -5,6 +5,7 @@ import Meme from "./components/Meme";
 import React from "react";
 import Counter from "./components/Counter";
 import Star from "./components/Star";
+import WindowTracker from "./components/WindowTracker";
 
 function App() {
   const [contact, setContact] = React.useState({
@@ -33,6 +34,9 @@ function App() {
     setCount((prevCount) => prevCount - 1);
   }
   const [user, setuser] = React.useState("joe");
+
+  const [show, setShow] = React.useState(true);
+
   return (
     <div className="">
       {/* <button className="btn--add--thing" onClick={addThing}>
@@ -70,6 +74,12 @@ function App() {
           </div>
         </article>
       </main>
+
+      <div className="container_tracker">
+        {if(show)
+          <WindowTracker />
+        }
+      </div>
     </div>
   );
 }

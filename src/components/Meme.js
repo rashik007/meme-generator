@@ -46,10 +46,22 @@ function Meme() {
     bottomText: "",
     randomImage: "http://i.imgflip.com/1bij.jpg",
   });
+
+  const [allMemes, setAllMeme] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((res) => res.json())
+      .then((data) => setAllMeme(data.data.memes));
+  }, []);
+
+  console.log(allMemes);
+
   function getMemeImage(e) {
     e.preventDefault();
     // console.log(meme.randomImage);
-    const memeArray = memeData.data.memes;
+    // const memeArray = memeData.data.memes;
+    const memeArray = allMemes;
     const randomNumber = Math.trunc(Math.random() * memeArray.length);
     const url = memeArray[randomNumber].url;
     const topText = console.log(url);

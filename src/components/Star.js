@@ -1,7 +1,6 @@
 import React from "react";
 
 function Star(props) {
-  console.log(props);
   const starIcon = props.isFilled ? "star-filled.png" : "star-empty.png";
   return (
     <img
